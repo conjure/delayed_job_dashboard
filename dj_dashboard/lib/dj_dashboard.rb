@@ -1,0 +1,2 @@
+module DjDashboard
+end
