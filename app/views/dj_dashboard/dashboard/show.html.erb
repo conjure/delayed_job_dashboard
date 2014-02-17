@@ -15,6 +15,6 @@
   </thead>
 
   <tbody>
-    <%= render @jobs, partial: 'dj_dashboard/dashboard/job' %>
+    <%= render partial: 'job', collection: @jobs %>
   </tbody>
 </table>
