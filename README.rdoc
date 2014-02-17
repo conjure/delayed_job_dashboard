@@ -1,3 +1,15 @@
 = Delayed Job Dashboard
 
-This project rocks and uses MIT-LICENSE.
+== Installation
+
+Include in your Gemfile
+
+    gem 'dj_dashboard', git: 'git://github.com/conjure/delayed_job_dashboard.git'
+
+Update your bundle
+
+    bundle install
+
+Mount in your routes.rb
+
+    mount DjDashboard::Engine, at: "djdashboard"
