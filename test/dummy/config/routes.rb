@@ -1,4 +1,6 @@
 Dummy::Application.routes.draw do
+
+  mount DjDashboard::Engine, at: "djdashboard"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

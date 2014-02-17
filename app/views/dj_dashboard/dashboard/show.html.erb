@@ -1,0 +1,20 @@
+<h1>Delayed Job Dashboard</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Queue</th>
+      <th>Priority</th>
+      <th>Attempts</th>
+      <th>Handler</th>
+      <th>Run At</th>
+      <th>Failed At</th>
+      <th>Last Error</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @jobs %>
+  </tbody>
+</table>

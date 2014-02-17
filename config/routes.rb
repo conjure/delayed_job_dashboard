@@ -1,3 +1,3 @@
-Rails.application.routes.draw do
-  get '/djdashboard', controller: :dj_dashboard, action: :index
+DjDashboard::Engine.routes.draw do
+  root controller: :dashboard, action: :show
 end
