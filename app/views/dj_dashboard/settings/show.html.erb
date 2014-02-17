@@ -1,0 +1,80 @@
+<h1>Settings</h1>
+
+<hr>
+
+<table class="table table-striped table-condensed ">
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Delayed::Worker.destroy_failed_jobs</td>
+      <td><%= Delayed::Worker.destroy_failed_jobs %></td>
+      <td>
+        <span class="small">By default, it will delete failed jobs (and it always deletes successful jobs). If you want to keep failed jobs, set <code>Delayed::Worker.destroy_failed_jobs = false</code>. The failed jobs will be marked with non-null failed_at.</small>
+      </td>
+    </tr>
+    <tr>
+      <td>Delayed::Worker.sleep_delay</td>
+      <td><%= Delayed::Worker.sleep_delay %></td>
+      <td>
+        <span class="small"></small>
+      </td>
+    </tr>
+    <tr>
+      <td>Delayed::Worker.max_attempts</td>
+      <td><%= Delayed::Worker.max_attempts %></td>
+      <td>
+        <span class="small">The default <code>Worker.max_attempts</code> is 25. After this, the job either deleted (default), or left in the database with "failed_at" set. With the default of 25 attempts, the last retry will be 20 days later, with the last interval being almost 100 hours.</small>
+      </td>
+    </tr>
+    <tr>
+      <td>Delayed::Worker.max_run_time</td>
+      <td><%= Delayed::Worker.max_run_time %></td>
+      <td>
+        <span class="small">The default <code>Worker.max_run_time</code> is 4.hours. If your job takes longer than that, another computer could pick it up. It's up to you to make sure your job doesn't exceed this time. You should set this to the longest time you think the job could take.</small>
+      </td>
+    </tr>
+    <tr>
+      <td>Delayed::Worker.read_ahead</td>
+      <td><%= Delayed::Worker.read_ahead %></td>
+      <td>
+        <span class="small">The default behavior is to read 5 jobs from the queue when finding an available job. You can configure this by setting <code>Delayed::Worker.read_ahead</code>.</small>
+      </td>
+    </tr>
+    <tr>
+      <td>Delayed::Worker.default_queue_name</td>
+      <td><%= Delayed::Worker.default_queue_name %></td>
+      <td>
+        <span class="small">By default all jobs will be queued without a named queue. A default named queue can be specified by using <code>Delayed::Worker.default_queue_name</code>.</small>
+      </td>
+    </tr>
+    <tr>
+      <td>Delayed::Worker.default_priority</td>
+      <td><%= Delayed::Worker.default_priority %></td>
+      <td>
+        <span class="small">By default all jobs are scheduled with priority = 0, which is top priority. You can change this by setting <code>Delayed::Worker.default_priority</code> to something else. Lower numbers have higher priority.</small>
+      </td>
+    </tr>
+    <tr>
+      <td>Delayed::Worker.delay_jobs</td>
+      <td><%= Delayed::Worker.delay_jobs %></td>
+      <td>
+        <span class="small">It is possible to disable delayed jobs for testing purposes. Set <code>Delayed::Worker.delay_jobs = false</code> to execute all jobs realtime.</small>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="panel panel-default" style="margin-top: 40px;">
+  <div class="panel-heading">
+    <h3 class="panel-title">Configuration Help</h3>
+  </div>
+  <div class="panel-body">
+    These are the current delayed job configuration values, which might be overridden by custom Job classes. These values can be changed by specifying them in <code># config/initializers/delayed_job_config.rb</code>
+  </div>
+</div>

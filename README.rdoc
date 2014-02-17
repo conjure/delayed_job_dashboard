@@ -13,3 +13,12 @@ Update your bundle
 Mount in your routes.rb
 
     mount DjDashboard::Engine, at: "djdashboard"
+
+
+== Credits
+
+Developed by the code majicians at Conjure - www.conjure.co.uk
+
+== Licence
+
+Released under the MIT Licence.

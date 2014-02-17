@@ -1,9 +1,15 @@
 <h1>Job: #<%= @job.id %></h1>
 
+<hr>
+
 <table class="table table-striped table-condensed ">
   <tbody>
     <tr>
-      <th width="200">Queue name</th>
+      <th width="200">Status</th>
+      <td><%= @job.locked_at ? 'Running' : 'Queued' %></td>
+    </tr>
+    <tr>
+      <th>Queue name</th>
       <td><%= @job.queue ? @job.queue : '<i class="muted">No queue specified</i>'.html_safe %></td>
     </tr>
     <tr>

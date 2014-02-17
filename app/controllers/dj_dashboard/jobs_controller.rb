@@ -9,7 +9,6 @@ class DjDashboard::JobsController < ::ActionController::Base
   def show
     @job = Delayed::Job.find params[:id]
     @handler = YAML.load(@job.handler)
-    p @handler
   end
 
 end
