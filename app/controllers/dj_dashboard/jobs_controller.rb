@@ -7,8 +7,13 @@ class DjDashboard::JobsController < ::ActionController::Base
   end
 
   def show
-    @job = Delayed::Job.find params[:id]
-    @handler = YAML.load(@job.handler)
+    @job = Delayed::Job.find_by_id params[:id]
+    if @job.blank? 
+      flash[:jobs] = "Job #{params[:id]} has finished"
+      redirect_to jobs_path
+    else
+      @handler = YAML.load(@job.handler)
+    end
   end
 
 end
