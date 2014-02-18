@@ -16,10 +16,16 @@
       <th>Run at</th>
       <th>Created at</th>
       <th>Updated at</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
 
   <tbody>
     <%= render partial: 'job', collection: @jobs %>
   </tbody>
+
 </table>
+
+<% if @jobs.any? %>
+  <%= link_to 'Clear Jobs', clear_jobs_path, class: 'btn btn-large btn-danger' %>
+<% end %>
