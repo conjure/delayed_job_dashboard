@@ -6,7 +6,11 @@
   <tbody>
     <tr>
       <th width="200">Status</th>
-      <td><%= @job.locked_at ? 'Running' : 'Queued' %></td>
+      <td>
+        <span class="label label-<%= @job.locked_at ? 'success' : 'primary' %>">
+          <%= @job.locked_at ? 'Running' : 'Queued' %>
+        </span>
+      </td>
     </tr>
     <tr>
       <th>Queue name</th>
@@ -31,19 +35,25 @@
     </tr>
     <tr>
       <th>Created at</th>
-      <td><%= @job.created_at %></td>
+      <td><%= @job.created_at %> - <i class="muted"><%= distance_of_time_in_words_to_now @job.created_at %> ago</i></td>
     </tr>
     <tr>
       <th>Updated at</th>
-      <td><%= @job.updated_at %></td>
+      <td><%= @job.updated_at %> - <i class="muted"><%= distance_of_time_in_words_to_now @job.updated_at %> ago</i></td>
     </tr>
     <tr>
       <th>Run at</th>
-      <td><%= @job.run_at %></td>
+      <td><%= @job.run_at %> - <i class="muted">In <%= distance_of_time_in_words_to_now @job.run_at %></i></td>
     </tr>
     <tr>
       <th>Failed at</th>
-      <td><%= @job.failed_at %></td>
+      <td>
+        <% if @job.failed_at %>
+          <%= @job.failed_at %> - <%= distance_of_time_in_words_to_now @job.failed_at %> ago
+        <% else %>
+          <i class="muted">Not failed</i>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>

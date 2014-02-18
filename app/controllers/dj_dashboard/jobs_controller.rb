@@ -3,7 +3,7 @@ class DjDashboard::JobsController < ::ActionController::Base
   layout "dj_dashboard/application"
 
   def index
-    @jobs = Delayed::Job.all
+    @jobs = Delayed::Job.all.order("run_at DESC")
   end
 
   def show
