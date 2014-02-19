@@ -5,7 +5,7 @@ class DjDashboard::JobsController < ::ActionController::Base
   before_filter :get_job, only: [:show, :delete]
 
   def index
-    @jobs = Delayed::Job.all.order("run_at DESC")
+    @jobs = Delayed::Job.all.order("run_at ASC")
   end
 
   def show
@@ -22,6 +22,11 @@ class DjDashboard::JobsController < ::ActionController::Base
   	redirect_to jobs_path
   end
 
+  # GET /jobs/clear
+  def clear_prompt
+  end
+
+  # POST /jobs/clear
   def clear
   	Delayed::Job.destroy_all
   	redirect_to jobs_path

@@ -17,11 +17,15 @@
           <ul class="nav navbar-nav">
             <%= render partial: '/layouts/dj_dashboard/menu' %>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
 
     <div class="container" style="margin-top: 60px;">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>

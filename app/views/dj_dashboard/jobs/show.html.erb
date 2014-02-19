@@ -1,3 +1,5 @@
+<%= link_to 'Delete Job', delete_job_path(@job), class: 'btn btn-xs btn-danger pull-right', style: 'margin-left: 10px;' %>
+
 <h1>Job: #<%= @job.id %></h1>
 
 <hr>
@@ -58,6 +60,6 @@
   </tbody>
 </table>
 
-
-
 <%= render partial: 'failure', object: @job if @job.attempts > 0 %>
+
+
